@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/brighter_background"
+    tools:context=".addTaskActivity">
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#393E46"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/background">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="clip_horizontal|start|center_horizontal">
+
+                        <LinearLayout
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+
+                            <ImageButton
+                                android:id="@+id/imageButton"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="15dp"
+                                android:clickable="true"
+                                android:onClick="exit_return"
+                                app:backgroundTint="#0000"
+                                app:srcCompat="@drawable/ic_baseline_arrow_back_24"
+                                app:tint="@color/white" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="end"
+                            android:orientation="horizontal">
+
+                            <ImageButton
+                                android:id="@+id/trash_can_delete"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="15dp"
+                                android:layout_weight="0"
+                                android:clickable="true"
+                                android:onClick="delete_task"
+                                android:visibility="invisible"
+                                app:backgroundTint="#0000"
+                                app:srcCompat="@drawable/baseline_delete_24"
+                                app:tint="@color/white" />
+                        </LinearLayout>
+
+                    </TableRow>
+
+
+                    <TextView
+                        android:id="@+id/textView2"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:text="Enter title:"
+                        android:textColor="@android:color/white"
+                        android:textSize="17sp" />
+
+                    <EditText
+                        android:id="@+id/titlefieldaddcard"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:ems="12"
+                        android:hint="Title"
+                        android:inputType="textPersonName"
+                        android:text="Title"
+                        android:textColor="@android:color/white"
+                        android:textSize="30sp" />
+                </LinearLayout>
+            </TableRow>
+
+        </TableLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="15dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:text="Choose category:"
+            android:textColor="@android:color/white"
+            android:textSize="17sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/rounded_corners"
+            android:backgroundTint="@color/background"
+            app:tint="@color/background"
+            >
+
+            <Spinner
+                android:id="@+id/spinner2"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1"
+                android:drawSelectorOnTop="true"
+                android:entries="@array/categories_of_cards"
+                android:spinnerMode="dialog"
+                android:textColor="#FFFFFF"
+                android:textSize="17sp"
+                android:theme="@style/mySpinnerItemStyle"
+                app:backgroundTint="#FFFFFF"
+                app:tint="#FFFFFF" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:text="Add description:"
+            android:textColor="@android:color/white"
+            android:textSize="17sp" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="TextInputLayoutStyle"
+            app:boxBackgroundMode="outline"
+            app:boxStrokeColor="#FFFFFF"
+            app:hintEnabled="false"
+            app:hintTextColor="#FFFFFF">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/textinputdescriptionaddcard"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="@drawable/rounded_corners_input"
+                android:gravity="top"
+                android:hint="Write a note here..."
+                android:inputType="text"
+                android:textColor="@android:color/white"
+                android:textColorHighlight="#A9FFEB3B"
+                android:textColorHint="#606060"
+                android:textColorLink="#FFFFFF"
+                android:textStyle="normal"
+                app:backgroundTint="@color/background" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/type_input_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:textColor="@android:color/white"
+            android:textSize="17sp" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:id="@+id/additional"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler_view_addditional"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                </androidx.recyclerview.widget.RecyclerView>
+            </LinearLayout>
+        </ScrollView>
+
+        <TextView
+            android:id="@+id/textView19"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:text="Choose background:"
+            android:textColor="@android:color/white"
+            android:textSize="17sp" />
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/checkBox_gradient_aqua"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:button="@drawable/roundedcheckbox"
+                    android:buttonTint="@color/gradient_aqua" />
+
+                <CheckBox
+                    android:id="@+id/checkBox_gradient_blue"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:button="@drawable/roundedcheckbox"
+                    android:buttonTint="@color/gradient_blue" />
+
+                <CheckBox
+                    android:id="@+id/checkBox_gradient_gray"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:button="@drawable/roundedcheckbox"
+                    android:buttonTint="@color/gradient_gray" />
+
+                <CheckBox
+                    android:id="@+id/checkBox_gradient_green"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:button="@drawable/roundedcheckbox"
+                    android:buttonTint="@color/gradient_green" />
+
+                <CheckBox
+                    android:id="@+id/checkBox_gradient_peach"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:button="@drawable/roundedcheckbox"
+                    android:buttonTint="@color/gradient_peach" />
+
+                <CheckBox
+                    android:id="@+id/checkBox_gradient_red"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:button="@drawable/roundedcheckbox"
+                    android:buttonTint="@color/gradient_red" />
+
+                <CheckBox
+                    android:id="@+id/checkBox_gradient_purple"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:button="@drawable/roundedcheckbox"
+                    android:buttonTint="@color/gradient_purple" />
+
+                <CheckBox
+                    android:id="@+id/checkBox_gradient_sky"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:button="@drawable/roundedcheckbox"
+                    android:buttonTint="@color/gradient_sky"
+                    />
+
+                <CheckBox
+                    android:id="@+id/checkBox_gradient_yellow"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:button="@drawable/roundedcheckbox"
+                    android:buttonTint="@color/gradient_yellow" />
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ScrollView
+                android:id="@+id/scroll_checked"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:visibility="invisible">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/checked_label"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Checked:"
+                        android:textColor="@android:color/white"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:id="@+id/bottom_showed"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text=""
+                        android:textColor="@android:color/white"
+                        android:textSize="17sp" />
+
+                </LinearLayout>
+            </ScrollView>
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="bottom|right"
+                android:layout_marginTop="10dip"
+                android:layout_marginBottom="10dip"
+                android:background="@drawable/rounded_corners"
+                android:clickable="true"
+                android:onClick="end_adding"
+                app:backgroundTint="@color/red"
+                app:srcCompat="@drawable/baseline_arrow_forward_24"
+                app:tint="@android:color/white" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Timka/Programming/Projects/AndroidStudio/SoraTasker/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2115" />
+        <entry key="..\:/Timka/Programming/Projects/AndroidStudio/SoraTasker/app/src/main/res/drawable/card_to_show_in_scroller.xml" value="0.161" />
+        <entry key="..\:/Timka/Programming/Projects/AndroidStudio/SoraTasker/app/src/main/res/drawable/gradient_color_background.xml" value="0.2115" />
+        <entry key="..\:/Timka/Programming/Projects/AndroidStudio/SoraTasker/app/src/main/res/drawable/gradient_color_background_aqua.xml" value="0.161" />
+        <entry key="..\:/Timka/Programming/Projects/AndroidStudio/SoraTasker/app/src/main/res/drawable/gradient_color_background_blue.xml" value="0.161" />
+        <entry key="..\:/Timka/Programming/Projects/AndroidStudio/SoraTasker/app/src/main/res/drawable/gradient_color_background_gray.xml" value="0.161" />
+        <entry key="..\:/Timka/Programming/Projects/AndroidStudio/SoraTasker/app/src/main/res/drawable/gradient_color_background_green.xml" value="0.161" />
+        <entry key="..\:/Timka/Programming/Projects/AndroidStudio/SoraTasker/app/src/main/res/drawable/gradient_color_background_peach.xml" value="0.161" />
+        <entry key="..\:/Timka/Programming/Projects/AndroidStudio/SoraTasker/app/src/main/res/drawable/gradient_color_background_red.xml" value="0.161" />
+        <entry key="..\:/Timka/Programming/Projects/AndroidStudio/SoraTasker/app/src/main/res/drawable/gradient_color_background_sky.xml" value="0.161" />
+        <entry key="..\:/Timka/Programming/Projects/AndroidStudio/SoraTasker/app/src/main/res/drawable/gradient_color_background_yellow.xml" value="0.161" />
+        <entry key="..\:/Timka/Programming/Projects/AndroidStudio/SoraTasker/app/src/main/res/drawable/ic_baseline_radio_button_unchecked_24.xml" value="0.161" />
+        <entry key="..\:/Timka/Programming/Projects/AndroidStudio/SoraTasker/app/src/main/res/drawable/ic_baseline_settings_24.xml" value="0.2115" />
+        <entry key="..\:/Timka/Programming/Projects/AndroidStudio/SoraTasker/app/src/main/res/drawable/rounded_corners.xml" value="0.1935" />
+        <entry key="..\:/Timka/Programming/Projects/AndroidStudio/SoraTasker/app/src/main/res/drawable/roundedcheckbox.xml" value="0.161" />
+        <entry key="..\:/Timka/Programming/Projects/AndroidStudio/SoraTasker/app/src/main/res/drawable/setting_gear.xml" value="0.2115" />
+        <entry key="..\:/Timka/Programming/Projects/AndroidStudio/SoraTasker/app/src/main/res/font/myfonts.xml" value="0.1" />
+        <entry key="..\:/Timka/Programming/Projects/AndroidStudio/SoraTasker/app/src/main/res/layout/activity_add_task.xml" value="0.2" />
+        <entry key="..\:/Timka/Programming/Projects/AndroidStudio/SoraTasker/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Timka/Programming/Projects/AndroidStudio/SoraTasker/app/src/main/res/layout/card_attrs.xml" value="0.1675929884566054" />
+        <entry key="..\:/Timka/Programming/Projects/AndroidStudio/SoraTasker/app/src/main/res/layout/card_of_layout.xml" value="0.16547066272688898" />
+        <entry key="..\:/Timka/Programming/Projects/AndroidStudio/SoraTasker/app/src/main/res/layout/settings_activity.xml" value="0.1675929884566054" />
+        <entry key="..\:/Timka/Programming/Projects/AndroidStudio/SoraTasker/app/src/main/res/layout/settings_activity_main.xml" value="0.22" />
+        <entry key="..\:/Timka/Programming/Projects/AndroidStudio/SoraTasker/app/src/main/res/layout/show_card_of_task.xml" value="0.33" />
+        <entry key="..\:/Timka/Programming/Projects/AndroidStudio/SoraTasker/app/src/main/res/layout/spinner_add_item.xml" value="0.1675929884566054" />
+        <entry key="..\:/Timka/Programming/Projects/AndroidStudio/SoraTasker/app/src/main/res/xml/root_preferences.xml" value="0.33" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.22" />
+      </ProjectState>
+    </option>
+  </component>
+</project>

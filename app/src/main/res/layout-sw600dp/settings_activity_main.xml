@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/brighter_background"
+
+    tools:context=".SettingsActivity">
+
+    <TableLayout
+        android:id="@+id/tableLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <CheckBox
+                android:id="@+id/checkBox_raw2"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center_vertical"
+                android:button="@drawable/roundedcheckbox"
+                android:buttonTint="@color/white"
+                android:drawableTint="@color/white" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="Debug"
+                android:textAlignment="textStart"
+                android:textColor="@color/white"
+                android:textSize="20dp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <CheckBox
+                android:id="@+id/checkBox_raw3"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center_vertical"
+                android:button="@drawable/roundedcheckbox"
+                android:buttonTint="@color/white"
+                android:drawableTint="@color/white" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="Show Description Of Tasks"
+                android:textAlignment="textStart"
+                android:textColor="@color/white"
+                android:textSize="20dp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </TableLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/background"
+                android:gravity="center">
+
+
+                <ImageButton
+                    android:id="@+id/home_button_return_from_settings"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="10dip"
+                    android:layout_marginBottom="10dip"
+                    android:clickable="true"
+                    android:contentDescription="home_button"
+                    android:onClick="return_back"
+                    app:backgroundTint="#0000"
+                    app:cornerRadius="50dp"
+                    app:srcCompat="@drawable/ic_baseline_home_24"
+                    app:tint="@color/grey_settings" />
+
+                <ImageButton
+                    android:id="@+id/settings_button_setting_menu"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="70dip"
+                    android:layout_marginTop="10dip"
+                    android:layout_marginRight="70dip"
+                    android:layout_marginBottom="10dip"
+                    android:contentDescription="settings_button"
+                    app:backgroundTint="#0000"
+                    app:srcCompat="@drawable/ic_baseline_settings_24"
+                    app:tint="@color/red" />
+
+                <ImageButton
+                    android:id="@+id/invisible_stuff"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="10dip"
+                    android:layout_marginBottom="10dip"
+                    android:clickable="true"
+                    android:contentDescription="home_button"
+                    app:backgroundTint="#0000"
+                    app:cornerRadius="50dp"
+                    app:srcCompat="@drawable/ic_baseline_home_24"
+                    app:tint="@color/background" />
+
+
+            </TableRow>
+
+        </TableLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/button_save"
+        android:layout_width="88dp"
+        android:layout_height="48dp"
+
+        android:layout_marginStart="7dp"
+        android:layout_marginBottom="8dp"
+        android:onClick="save_button"
+        android:text="Save"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/button_save2"
+        android:layout_width="267dp"
+        android:layout_height="46dp"
+
+        android:layout_marginStart="4dp"
+        android:layout_marginBottom="64dp"
+        android:onClick="save_all_data"
+        android:text="Save Existing list"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/button_read"
+        android:layout_width="88dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+        android:onClick="show_button"
+        android:text="Read"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="0dp"
+        android:layout_height="300dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/json_file_read"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextViewfv\nfrsfsf\nrwgrwwer\n\n\n\n\n\n\n\drsgsggsdn\n\n\n\n\drsgsggsdn\n\n\n\n\drsgsggsdTextViewfv\nfrsfsf\nrwgrwwer\n\n\n\n\n\n\n\drsgsggsdn\n\n\n\n\drsgsggsdn\n\n\n\n\drsgsggsdTextViewfv\nfrsfsf\nrwgrwwer\n\n\n\n\n\n\n\drsgsggsdn\n\n\n\n\drsgsggsdn\n\n\n\n\drsgsggsdTextViewfv\nfrsfsf\nrwgrwwer\n\n\n\n\n\n\n\drsgsggsdn\n\n\n\n\drsgsggsdn\n\n\n\n\drsgsggsdTextViewfv\nfrsfsf\nrwgrwwer\n\n\n\n\n\n\n\drsgsggsdn\n\n\n\n\drsgsggsdn\n\n\n\n\drsgsggsdssTextViewfv\nfrsfsf\nrwgrwwer\n\n\n\n\n\n\n\drsgsggsdn\n\n\n\n\drsgsggsdn\n\n\n\n\drsgsggsd" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <com.prolificinteractive.materialcalendarview.MaterialCalendarView
+        android:id="@+id/calendarView"
+        style="@style/Widget.CalendarView.Custom"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/button_save2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tableLayout" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
