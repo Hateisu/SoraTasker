@@ -1,2 +1,2 @@
 # SoraTasker
-My own tasker
+My own tasker for self using
