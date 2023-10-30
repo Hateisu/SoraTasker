@@ -19,3 +19,17 @@ Next when we need to show active/deactive tasks we changing our tasks list.
 
 
 To not delete and then re-save current tasks we need to insert them by id.
+
+
+
+
+#My git helper
+Online source for md files editor https://stackedit.io/app#
+
+Adding all to remote repo: git add .
+Commiting: git commit -m "message for commit"
+Pulling: git pull
+(If something goes wrong): git push
+git status: git status
+To update from repo: git remote update   =>  git pull 
+
