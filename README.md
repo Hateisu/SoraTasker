@@ -18,5 +18,3 @@ Next when we need to show active/deactive tasks we changing our tasks list.
 
 
 To not delete and then re-save current tasks we need to insert them by id.
-
-
