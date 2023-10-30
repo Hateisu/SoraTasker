@@ -1,5 +1,6 @@
 <div><h1>Sora Tasker</h1></div>
-<h4>What is this? \n This is some sort of Tasker like from STALKER series.</h4>
+<h4>What is this? 
+This is some sort of Tasker like from STALKER series.</h4>
 TO DO:
 1) Make types for Tasker => Make it storeable
 2) Make CheckBox clickable
