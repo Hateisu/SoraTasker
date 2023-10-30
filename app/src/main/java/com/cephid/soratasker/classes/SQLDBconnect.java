@@ -32,13 +32,24 @@ public class SQLDBconnect {
     //================================================ADD FUNCTIONS==================================================
 
     public void addTask(Tasker task) {
-        db.execSQL("INSERT INTO main (title,description,isDone,madeDate,deadlineDate) VALUES (" +
-                "\"" + task.title + "\"" + "," +
-                "\"" + task.description + "\"" + "," +
-                task.isDone + "," +
-                "\"" + task.madeDate.toString() + "\"" + "," +
-                "\"" + task.deadlineDate.toString() + "\""
-                + ");");
+        if (task.id != -1) {
+            db.execSQL("INSERT INTO main (id,title,description,isDone,madeDate,deadlineDate) VALUES (" +
+                    task.id + ","  +
+                    "\"" + task.title + "\"" + "," +
+                    "\"" + task.description + "\"" + "," +
+                    task.isDone + "," +
+                    "\"" + task.madeDate.toString() + "\"" + "," +
+                    "\"" + task.deadlineDate.toString() + "\""
+                    + ");");
+        }else{
+            db.execSQL("INSERT INTO main (title,description,isDone,madeDate,deadlineDate) VALUES (" +
+                    "\"" + task.title + "\"" + "," +
+                    "\"" + task.description + "\"" + "," +
+                    task.isDone + "," +
+                    "\"" + task.madeDate.toString() + "\"" + "," +
+                    "\"" + task.deadlineDate.toString() + "\""
+                    + ");");
+        }
     }
 
     public void addTasks(List<Tasker> tasks) {
@@ -48,11 +59,11 @@ public class SQLDBconnect {
         }
     }
 
-    //================================================GET FUNCTIONS==================================================
-
     public void clearDataBeforeReSaving() {
         db.execSQL("delete from main;");
     }
+
+    //================================================GET FUNCTIONS==================================================
 
     public Tasker getTaskById(int id) {
         /*
@@ -77,29 +88,35 @@ public class SQLDBconnect {
         );
     }
 
-    public Tasker[] getAllTasks() {
+    public List<Tasker> getAllTasks() {
         Cursor q = db.rawQuery("SELECT * from main;", null);
-        List<Tasker> tasks = new ArrayList<>();
-        int rows = q.getCount();
-        List<String> column_name = new ArrayList<>();
-        Collections.addAll(column_name, q.getColumnNames());
-        for (int i = 0; i < rows; i++) {
-            q.move(1);
-            List<String> row_data = getFullRow(q);
-            tasks.add(new Tasker(
-                    row_data.get(column_name.indexOf("title")),
-                    row_data.get(column_name.indexOf("description")),
-                    LocalDateTime.parse(row_data.get(column_name.indexOf("madeDate"))),
-                    LocalDateTime.parse(row_data.get(column_name.indexOf("deadlineDate"))),
-                    row_data.get(column_name.indexOf("isDone")).equals("1")
-            ));
-        }
-        Tasker[] ret = tasks.toArray(new Tasker[0]);
-        return ret;
+        return getTaskerListFromCursor(q);
     }
 
-    public List<Tasker> getAllTasksList() {
-        return new ArrayList<>(Arrays.asList(getAllTasks()));
+    public List<Tasker> get_ActiveOrDeactiveTasksList(boolean is_active) {
+        Cursor q = db.rawQuery("SELECT * from main where isDone=" + (is_active ? "TRUE" : "FALSE") + ";", null);
+        return getTaskerListFromCursor(q);
+    }
+
+    public List<Tasker> getTasksBy(List<String> filters) {
+        Cursor q;
+        String condition = "";
+        for (String filter : filters) {
+            switch (filter) {
+                case "active":
+                    condition = condition + ", isDone = TRUE";
+                    break;
+                case "deactive":
+                    condition = condition + ", isDone = FALSE";
+                    break;
+                /*case "type":
+                    break;*/
+            }
+        }
+        condition = condition.replaceFirst(",", "");
+        q = db.rawQuery("SELECT * FROM main WHERE " + condition + ";", null);
+
+        return getTaskerListFromCursor(q);
     }
 
     private List<String> getFullRow(Cursor q) {
@@ -110,9 +127,9 @@ public class SQLDBconnect {
         return ret;
     }
 
-    public List<Tasker> get_ActiveOrDeactiveTasksList(boolean is_active){
+    private List<Tasker> getTaskerListFromCursor(Cursor q) {
+        q.moveToPosition(-1);
         List<Tasker> tasks = new ArrayList<>();
-        Cursor q = db.rawQuery("SELECT * from main where isDone="+(is_active?"TRUE":"FALSE")+";",null);
         int rows = q.getCount();
         List<String> column_name = new ArrayList<>();
         Collections.addAll(column_name, q.getColumnNames());
@@ -124,7 +141,8 @@ public class SQLDBconnect {
                     row_data.get(column_name.indexOf("description")),
                     LocalDateTime.parse(row_data.get(column_name.indexOf("madeDate"))),
                     LocalDateTime.parse(row_data.get(column_name.indexOf("deadlineDate"))),
-                    row_data.get(column_name.indexOf("isDone")).equals("1")
+                    row_data.get(column_name.indexOf("isDone")).equals("1"),
+                    Integer.parseInt(row_data.get(column_name.indexOf("id")))
             ));
         }
         return tasks;

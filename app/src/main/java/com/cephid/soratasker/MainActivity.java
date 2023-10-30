@@ -4,8 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import com.cephid.soratasker.CustomViewToLayout.TaskViewAdapter;
 import com.cephid.soratasker.CustomViewToLayout.TaskViewHolder;
@@ -40,16 +42,25 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        db.clearDataBeforeReSaving();
+        //db.clearDataBeforeReSaving();
         db.addTasks(tasks);
     }
     //======================================Functions And Logic=========================================
+
+    public boolean debug_able = true;
+
+    public void MakePopUpLog(String string, Context context){
+        //Just SOUT for debugging and developing
+        if (debug_able)Toast.makeText(context, string, Toast.LENGTH_SHORT).show();
+    }
 
     public void allTasksToView(){
         //Finding Recycler
         RecyclerView recyclerView = findViewById(R.id.itemlist);
         //Getting all data as List to have methods like add and remove to make notifyDataSetChanged functional
-        tasks = db.getAllTasksList();
+        List<String> filters  = new ArrayList<>();
+        filters.add("deactive");
+        tasks = db.getTasksBy(filters);
         //Connecting Adapter to recycler
         adapter = new TaskViewAdapter(this, tasks);
         recyclerView.setAdapter(adapter);
@@ -62,7 +73,13 @@ public class MainActivity extends AppCompatActivity {
         //If we don`t eed same job again
         if (is_active!=active){
             active = is_active;
-            allTasksToView();
+            List<String> filter = new ArrayList<>();
+            filter.add((is_active?"deactive":"active"));
+            tasks.clear();
+            tasks = db.getTasksBy(filter);
+            MakePopUpLog(adapter.getItemCount()+"  Is active "+tasks.size(),this);
+            adapter.tasks = tasks;
+            adapter.notifyDataSetChanged();
         }
     }
 
