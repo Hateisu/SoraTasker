@@ -1,7 +1,10 @@
+<div><h1>Sora Tasker</h1></div>
+<h4>What is this? \n This is some sort of Tasker like from STALKER series.</h4>
 TO DO:
 1) Make types for Tasker => Make it storeable
 2) Make CheckBox clickable
 3) Make edit activity and button to open new intent
+
 
 So we have a global list of all tasks that will be shown to RecyclerView. 
 Possible ways to write application:
@@ -15,3 +18,5 @@ Next when we need to show active/deactive tasks we changing our tasks list.
 
 
 To not delete and then re-save current tasks we need to insert them by id.
+
+
