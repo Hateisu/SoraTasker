@@ -10,7 +10,7 @@ public abstract class TaskerAbstract {
     I want to make tasker that will show some tasks that has: title, description, madedate, deadlinedate, isDone
      */
     public int id = -1;
-    public String title,description;
+    public String title,description,type;
     public LocalDateTime madeDate,deadlineDate;
     public boolean isDone;
     /*

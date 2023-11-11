@@ -13,6 +13,7 @@ import java.util.Objects;
 public class Tasker extends TaskerAbstract{
 
 
+//==========================================Initialization=============================================
     public Tasker(String title, String description, LocalDateTime madeDate, LocalDateTime deadlineDate) {
         this.title=title;
         this.description=description;
@@ -27,6 +28,14 @@ public class Tasker extends TaskerAbstract{
     public Tasker(String title, String description, LocalDateTime madeDate,LocalDateTime deadlineDate,boolean isDone, int id) {
         this(title,description,madeDate,deadlineDate,isDone);
         this.id = id;
+    }
+    public Tasker(String title, String description, LocalDateTime madeDate,LocalDateTime deadlineDate,boolean isDone, int id, TaskTypes type) {
+        this(title,description,madeDate,deadlineDate,isDone,id);
+        this.type = String.valueOf(type);
+    }
+    //==========================================Logic=============================================
+    public void checkToday(){
+        this.isDone = true;
     }
     /*
     public JSONObject toJSON() throws JSONException {

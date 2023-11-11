@@ -2,11 +2,13 @@ package com.cephid.soratasker.CustomViewToLayout;
 
 import android.content.Context;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.cephid.soratasker.MainActivity;
 import com.cephid.soratasker.R;
 import com.cephid.soratasker.classes.Tasker;
 
@@ -16,6 +18,7 @@ public class TaskViewAdapter extends RecyclerView.Adapter<TaskViewHolder> {
     //Adapting My TaskViewHolder to Tasker objects
     private Context context;
     public List<Tasker> tasks;
+
     public TaskViewAdapter(Context context, List<Tasker> tasks) {
         //Pushing data from MainClass
         this.tasks = tasks;
@@ -26,7 +29,7 @@ public class TaskViewAdapter extends RecyclerView.Adapter<TaskViewHolder> {
     @Override
     public TaskViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         //Setting view
-        return new TaskViewHolder(LayoutInflater.from(context).inflate(R.layout.show_card_of_task,parent,false));
+        return new TaskViewHolder(LayoutInflater.from(context).inflate(R.layout.show_card_of_task, parent, false));
     }
 
     @Override
@@ -34,6 +37,16 @@ public class TaskViewAdapter extends RecyclerView.Adapter<TaskViewHolder> {
         holder.header.setText(tasks.get(position).title);
         holder.textViewrow1.setText(tasks.get(position).description);
         holder.checkBox.setChecked(tasks.get(position).isDone);
+        holder.checkBox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (tasks.get(position).id != -1) {
+                    MainActivity.db.UpdateTaskDoneById(tasks.get(position).id, !tasks.get(position).isDone);
+                    MainActivity.tasks.remove(position);
+                    MainActivity.ForceUpdateRecycleView();
+                }
+            }
+        });
     }
 
     @Override

@@ -6,6 +6,8 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.cephid.soratasker.MainActivity;
+
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -84,17 +86,13 @@ public class SQLDBconnect {
                 row_data.get(column_name.indexOf("description")),
                 LocalDateTime.parse(row_data.get(column_name.indexOf("madeDate"))),
                 LocalDateTime.parse(row_data.get(column_name.indexOf("deadlineDate"))),
-                row_data.get(column_name.indexOf("isDone")).equals("1")
+                row_data.get(column_name.indexOf("isDone")).equals("1"),
+                Integer.parseInt(row_data.get(column_name.indexOf("id")))
         );
     }
 
     public List<Tasker> getAllTasks() {
         Cursor q = db.rawQuery("SELECT * from main;", null);
-        return getTaskerListFromCursor(q);
-    }
-
-    public List<Tasker> get_ActiveOrDeactiveTasksList(boolean is_active) {
-        Cursor q = db.rawQuery("SELECT * from main where isDone=" + (is_active ? "TRUE" : "FALSE") + ";", null);
         return getTaskerListFromCursor(q);
     }
 
@@ -148,7 +146,22 @@ public class SQLDBconnect {
         return tasks;
     }
 
-
+    //================================================PUT FUNCTIONS==================================================
+    public void UpdateFullyTaskById(int id,Tasker task){
+        db.execSQL("UPDATE main SET " +
+                "title="+"\"" + task.title + "\""+" , " +
+                "description="+ "\"" + task.description + "\""+"," +
+                "isDone="+task.isDone+"," +
+                "madeDate="+"\"" + task.madeDate.toString() + "\""+"," +
+                "deadlineDate="+"\"" + task.deadlineDate.toString() + "\"" +
+                "where id="+id+";");
+    }
+    public void UpdateTaskDoneById(int id,boolean isDone){
+        System.out.println("Updating on "+id+" with "+isDone);
+        db.execSQL("UPDATE main SET " +
+                "isDone="+isDone+" "+
+                "where id="+id+";");
+    }
     //================================================DEBUG FUNCTIONS==================================================
 
 

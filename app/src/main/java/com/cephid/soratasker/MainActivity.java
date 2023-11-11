@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -20,9 +21,9 @@ import java.util.Arrays;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    public SQLDBconnect db;
-    public List<Tasker> tasks = new ArrayList<>();
-    TaskViewAdapter adapter;
+    public static SQLDBconnect db;
+    public static List<Tasker> tasks = new ArrayList<>();
+    public static TaskViewAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,13 +44,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
         //db.clearDataBeforeReSaving();
-        db.addTasks(tasks);
+        //db.addTasks(tasks);
     }
     //======================================Functions And Logic=========================================
 
-    public boolean debug_able = true;
+    public static boolean debug_able = true;
 
-    public void MakePopUpLog(String string, Context context){
+    public static void MakePopUpLog(String string, Context context){
         //Just SOUT for debugging and developing
         if (debug_able)Toast.makeText(context, string, Toast.LENGTH_SHORT).show();
     }
@@ -67,6 +68,10 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new GridLayoutManager(this,1));
     }
 
+    public static void ForceUpdateRecycleView(){
+
+        adapter.notifyDataSetChanged();
+    }
 
     public boolean active = true;
     public void activeOrDeactiveTasks(boolean is_active){
@@ -101,13 +106,8 @@ public class MainActivity extends AppCompatActivity {
         adapter.notifyDataSetChanged();
     }
     public void add_card_real(View view){
-        tasks = new ArrayList<Tasker>();
-        tasks.add(new Tasker("Title With long description","Description\n\n\n\nDesc Long", LocalDateTime.now(),LocalDateTime.now().plusDays(2),true));
-        tasks.add(new Tasker("Title With long description","Description\n\n\n\nDesc Long", LocalDateTime.now(),LocalDateTime.now().plusDays(2)));
-        tasks.add(new Tasker("Sml Ttl","Sml dscrptn", LocalDateTime.now(),LocalDateTime.now().plusDays(2),true));
-        tasks.add(new Tasker("Fuck niggers","Madi is nigga", LocalDateTime.now(),LocalDateTime.now().plusDays(2)));
-        //System.out.println(tasks.get(tasks.size()-1).title+" added in main ");
-        adapter.notifyDataSetChanged();
+        Intent intent = new Intent(MainActivity.this,AddCardActivity.class);
+        startActivity(intent);
     }
 
 }
