@@ -30,6 +30,7 @@ Maybe good experience will be to add statistics for this
 
 And also an organizer via calendar.
 
+<<<<<<< HEAD
 # My git helper
 Online source for md files editor https://stackedit.io/app#
 
@@ -39,4 +40,14 @@ Pulling: git pull
 (If something goes wrong): git push
 git status: git status
 To update from repo: git remote update   =>  git pull 
+=======
+<h1>My git helper</h1>
+Online source for md files editor https://stackedit.io/app#     <br>
+Adding all to remote repo: git add        <br>
+Commiting: git commit -m "message for commit"   <br>
+Pulling: git pull    <br>
+(If something goes wrong): git push    <br>
+git status: git status     <br>
+To update from repo: git remote update   =>  git pull    <br>
+>>>>>>> 9f560ca1709cc67368354f7cb7cd5919079382f0
 
