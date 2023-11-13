@@ -9,10 +9,15 @@ public abstract class TaskerAbstract {
     /*
     I want to make tasker that will show some tasks that has: title, description, madedate, deadlinedate, isDone
      */
+    //==========MUST BE INITIALIZED==================
     public int id = -1;
-    public String title,description,type;
-    public LocalDateTime madeDate,deadlineDate;
+    public String title,description;
+    public LocalDateTime madeDate;
+
+    //===========HAS DEFAULT==================
     public boolean isDone;
+    public String type,background_color;
+
     /*
     everything will be hosted in json files in external source - NO. this will get slow as data came to json. With more data lower speed.
 
@@ -21,4 +26,7 @@ public abstract class TaskerAbstract {
     So we will create DB if it is`nt exist.
 
      */
+
+    //Functions
+
 }

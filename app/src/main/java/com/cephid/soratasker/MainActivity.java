@@ -101,12 +101,16 @@ public class MainActivity extends AppCompatActivity {
         //db.addTask(new Tasker("Title "+temp,"Description", LocalDateTime.now(),LocalDateTime.now().plusDays(2)));
         temp = temp +1;
         //tasks = db.getAllTasksList();
-        tasks.add(new Tasker("Title "+temp,"Description\n\n\n\nDesc Long", LocalDateTime.now(),LocalDateTime.now().plusDays(2)));
+        tasks.add(new Tasker("Title "+temp,"Description\n\n\n\nDesc Long", LocalDateTime.now()));
         //System.out.println(tasks.get(tasks.size()-1).title+" added in main ");
         adapter.notifyDataSetChanged();
     }
     public void add_card_real(View view){
         Intent intent = new Intent(MainActivity.this,AddCardActivity.class);
+        startActivity(intent);
+    }
+    public void go_to_settings_button(View view){
+        Intent intent = new Intent(MainActivity.this,SettingsActivity.class);
         startActivity(intent);
     }
 

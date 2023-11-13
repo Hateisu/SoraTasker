@@ -30,7 +30,6 @@ Maybe good experience will be to add statistics for this
 
 And also an organizer via calendar.
 
-<<<<<<< HEAD
 # My git helper
 Online source for md files editor https://stackedit.io/app#
 
@@ -49,5 +48,12 @@ Pulling: git pull    <br>
 (If something goes wrong): git push    <br>
 git status: git status     <br>
 To update from repo: git remote update   =>  git pull    <br>
->>>>>>> 9f560ca1709cc67368354f7cb7cd5919079382f0
 
+
+
+TODO 
+
+MIGRATE TO jdk17 -> REWORK DB -> REWRITE SQL QUERIES -> ADD TYPES AND COLORS FOR TASKS -> REWRITE DB -> REWRITE QUERIES -> 
+
+
+idea to make custom text color and gradient background

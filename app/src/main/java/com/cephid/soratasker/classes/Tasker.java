@@ -14,29 +14,70 @@ public class Tasker extends TaskerAbstract{
 
 
 //==========================================Initialization=============================================
-    public Tasker(String title, String description, LocalDateTime madeDate, LocalDateTime deadlineDate) {
+
+    //For better builder
+    public Tasker(){
+        this("","",LocalDateTime.now());
+    }
+
+    //For simple add on
+    public Tasker(String title, String description, LocalDateTime madeDate) {
         this.title=title;
         this.description=description;
         this.madeDate=madeDate;
-        this.deadlineDate=deadlineDate;
-        this.isDone = false;
+        //Default's
+        this.id=-1;
+        this.isDone=false;
+        this.type = TaskTypes.Single.toString();
+        this.background_color = TaskColors.RED.toString();
     }
-    public Tasker(String title, String description, LocalDateTime madeDate,LocalDateTime deadlineDate,boolean isDone) {
-        this(title,description,madeDate,deadlineDate);
-        this.isDone=isDone;
-    }
-    public Tasker(String title, String description, LocalDateTime madeDate,LocalDateTime deadlineDate,boolean isDone, int id) {
-        this(title,description,madeDate,deadlineDate,isDone);
+
+    //For Getting from db
+    public Tasker(String title, String description, LocalDateTime madeDate,TaskTypes type,boolean isDone, int id,TaskColors back) {
+        this(title,description,madeDate);
+        this.type = type.toString();
+        this.isDone = isDone;
         this.id = id;
+        this.background_color = back.toString();
     }
-    public Tasker(String title, String description, LocalDateTime madeDate,LocalDateTime deadlineDate,boolean isDone, int id, TaskTypes type) {
-        this(title,description,madeDate,deadlineDate,isDone,id);
+    /*public Tasker(String title, String description, LocalDateTime madeDate,boolean isDone, int id) {
+        this(title,description,madeDate,isDone,id);
         this.type = String.valueOf(type);
-    }
+    }*/
     //==========================================Logic=============================================
     public void checkToday(){
         this.isDone = true;
     }
+    public Tasker setTitle(String title){
+        this.title = title;
+        return this;
+    }
+    public Tasker setDescription(String description){
+        this.description = description;
+        return this;
+    }
+    public Tasker setId(int id){
+        this.id = id;
+        return this;
+    }
+    public Tasker setDate(LocalDateTime date){
+        this.madeDate = date;
+        return this;
+    }
+
+    public Tasker setIsDone(boolean isDone){
+        this.isDone = isDone;
+        return this;
+    }
+    public Tasker setType(String type){
+        this.type = type;
+        return this;
+    }
+    public Tasker setBackgroundColor(String color){
+        this.background_color = color;
+        return this;
+    }
+
     /*
     public JSONObject toJSON() throws JSONException {
         JSONObject obj = new JSONObject();
